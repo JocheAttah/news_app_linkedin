@@ -7,7 +7,7 @@ const Header = ({home}) => {
     <View style={{...styles.headerContainer}}>
       {home ? (
         <TouchableOpacity style={{ ...styles.left }}>
-          <Feather name="sun" size={24} color="#151923" />
+          <Feather name="moon" size={24} color="#151923" />
         </TouchableOpacity>
       ) : (
         <TouchableOpacity style={{ ...styles.left }}>
