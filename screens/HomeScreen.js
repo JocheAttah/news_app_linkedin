@@ -9,6 +9,7 @@ import {
 } from "../components";
 import { Feather } from "@expo/vector-icons";
 import { tabListData } from "../assets/dummyData";
+import { ScrollView } from "react-native-web";
 
 const scrollTabData = tabListData;
 
@@ -43,7 +44,16 @@ const HomeScreen = () => {
         {selectedTab.NewsList.map((news) => (
           <Headlines news={news} />
         ))}
-        <HeaderButtonComp text="See More" header/>
+        <HeaderButtonComp
+          
+          text="See More"
+          size={10}
+          center
+          onPress={() => console.warn("see more clicked")}
+        />
+      </View>
+      <View style={{ marginTop: 24 }}>
+        <HeaderButtonComp header text="News Sources" size={14}  />
       </View>
     </Container>
   );
