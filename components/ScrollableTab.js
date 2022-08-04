@@ -14,11 +14,12 @@ const ScrollableTab = ({ tabList, selectedTab, onPress }) => {
         marginHorizontal: 24,
         paddingTop: 10,
         position: "relative",
+        marginBottom: 30,
       }}
       onPress={() => onPress(item)}
     >
       {selectedTab.id == item.id && (
-        <View style={{ position: "absolute", right:'25%',  }}>
+        <View style={{ position: "absolute", right: "50%" }}>
           <View
             style={{
               width: 5,
@@ -34,7 +35,7 @@ const ScrollableTab = ({ tabList, selectedTab, onPress }) => {
   );
 
   return (
-    <View style={{ paddingTop:20, }}>
+    <View style={{ paddingTop: 20 }}>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}

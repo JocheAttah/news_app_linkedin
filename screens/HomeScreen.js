@@ -1,38 +1,20 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, Image } from "react-native";
 import React from "react";
-import { Container, Header, ScrollableTab } from "../components";
+import {
+  Container,
+  Header,
+  HeaderButtonComp,
+  Headlines,
+  ScrollableTab,
+} from "../components";
 import { Feather } from "@expo/vector-icons";
+import { tabListData } from "../assets/dummyData";
 
+const scrollTabData = tabListData;
 
 const HomeScreen = () => {
-  const [tabList, setTabList] = React.useState([
-    {
-      id: 0,
-      name: "All",
-    },
-    {
-      id: 1,
-      name: "Business",
-    },
-    {
-      id: 2,
-      name: "Entertainment",
-    },
-    {
-      id: 3,
-      name: "Health",
-    },
-    {
-      id: 4,
-      name: "Sports",
-    },
-  ]);
-
-  const [selectedTab, setSelectedTab] = React.useState({
-    id: 0,
-    name: "Chair",
-    title: "chairs",
-  });
+  const [tabList, setTabList] = React.useState(scrollTabData);
+  const [selectedTab, setSelectedTab] = React.useState(scrollTabData[0]);
 
   return (
     <Container>
@@ -57,6 +39,12 @@ const HomeScreen = () => {
         selectedTab={selectedTab}
         onPress={(item) => setSelectedTab(item)}
       />
+      <View style={{}}>
+        {selectedTab.NewsList.map((news) => (
+          <Headlines news={news} />
+        ))}
+        <HeaderButtonComp text="See More" header/>
+      </View>
     </Container>
   );
 };
