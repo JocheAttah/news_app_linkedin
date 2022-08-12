@@ -1,3 +1,8 @@
+import BBC from "../assets/bbc.svg";
+import CNN from "../assets/cnn.svg";
+import Fox from "../assets/fox.svg";
+import Al from "../assets/al.svg";
+
 const tabListData = [
   {
     id: 0,
@@ -98,4 +103,28 @@ const tabListData = [
   },
 ];
 
-export { tabListData };
+const SourcesData = [
+  {
+    id: 0,
+    name: "bbc",
+    image: BBC,
+  },
+  {
+    id: 1,
+    name: "cnn",
+    image: CNN,
+  },
+  {
+    id: 2,
+    name: "fox",
+    image: Fox,
+  },
+  {
+    id: 3,
+    name: "al jazeera",
+    image: Al,
+  },
+  
+];
+
+export { tabListData, SourcesData };

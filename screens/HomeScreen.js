@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, TextInput, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Image,
+  FlatList,
+} from "react-native";
 import React from "react";
 import {
   Container,
@@ -8,7 +15,7 @@ import {
   ScrollableTab,
 } from "../components";
 import { Feather } from "@expo/vector-icons";
-import { tabListData } from "../assets/dummyData";
+import { SourcesData, tabListData } from "../assets/dummyData";
 import { ScrollView } from "react-native-web";
 
 const scrollTabData = tabListData;
@@ -17,6 +24,11 @@ const HomeScreen = () => {
   const [tabList, setTabList] = React.useState(scrollTabData);
   const [selectedTab, setSelectedTab] = React.useState(scrollTabData[0]);
 
+  const renderItem = ({ item }) => (
+    <View style={{...styles.sourcesItem}}>
+      <item.image width={97} height={99} />
+    </View>
+  );
   return (
     <Container>
       <Header home />
@@ -45,7 +57,6 @@ const HomeScreen = () => {
           <Headlines news={news} />
         ))}
         <HeaderButtonComp
-          
           text="See More"
           size={10}
           center
@@ -53,7 +64,16 @@ const HomeScreen = () => {
         />
       </View>
       <View style={{ marginTop: 24 }}>
-        <HeaderButtonComp header text="News Sources" size={14}  />
+        <HeaderButtonComp header text="News Sources" size={14} />
+      </View>
+      <View style={{ ...styles.sourcesContainer }}>
+        <FlatList
+          horizontal
+          data={SourcesData}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+        />
       </View>
     </Container>
   );
@@ -92,4 +112,10 @@ const styles = StyleSheet.create({
     top: 12,
     left: 16,
   },
+  sourcesContainer: {
+    marginTop: 24,
+  },
+  sourcesItem: {
+    marginRight: 16,
+  }
 });
