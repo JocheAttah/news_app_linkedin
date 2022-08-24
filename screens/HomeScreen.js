@@ -6,7 +6,7 @@ import {
   Image,
   FlatList,
 } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import {
   Container,
   Header,
@@ -17,15 +17,22 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { SourcesData, tabListData } from "../assets/dummyData";
 import { ScrollView } from "react-native-web";
+import { NewsContext } from "../API/OurContext";
 
 const scrollTabData = tabListData;
 
 const HomeScreen = () => {
+  const {
+    news: { articles },
+    setCategory,
+    darkTheme,
+  } = useContext(NewsContext);
+
   const [tabList, setTabList] = React.useState(scrollTabData);
   const [selectedTab, setSelectedTab] = React.useState(scrollTabData[0]);
 
   const renderItem = ({ item }) => (
-    <View style={{...styles.sourcesItem}}>
+    <View style={{ ...styles.sourcesItem }}>
       <item.image width={97} height={99} />
     </View>
   );
@@ -50,11 +57,14 @@ const HomeScreen = () => {
       <ScrollableTab
         tabList={tabList}
         selectedTab={selectedTab}
-        onPress={(item) => setSelectedTab(item)}
+        onPress={(item) => {
+          setSelectedTab(item);
+          setCategory(item.name);
+        }}
       />
       <View style={{}}>
-        {selectedTab.NewsList.map((news) => (
-          <Headlines news={news} />
+        {articles?.slice(0, 2).map((news) => (
+          <Headlines news={news} key={news.title} />
         ))}
         <HeaderButtonComp
           text="See More"
@@ -117,5 +127,5 @@ const styles = StyleSheet.create({
   },
   sourcesItem: {
     marginRight: 16,
-  }
+  },
 });

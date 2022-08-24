@@ -13,25 +13,24 @@ const OurContext = ({ children }) => {
   const fetchNews = async (reset = category) => {
     const { data } = await axios.get(getNewsAPI(reset));
     setNews(data);
-    console.warn(data);
   };
 
-  // const fetchNewsFromSource = async () => {
-  //   try {
-  //     const { data } = await axios.get(getSourceAPI(source));
-  //     setNews(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const fetchNewsFromSource = async () => {
+    try {
+      const { data } = await axios.get(getSourceAPI(source));
+      setNews(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     fetchNews();
   }, [category]);
 
-  // useEffect(() => {
-  //   fetchNewsFromSource();
-  // }, [source]);
+  useEffect(() => {
+    fetchNewsFromSource();
+  }, [source]);
 
   return (
     <NewsContext.Provider

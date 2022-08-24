@@ -7,3 +7,5 @@ export const getNewsAPI = (category, country = "us") => {
 export const getSourceAPI = (source) => {
   return `${BASE_URL}/everything/${source}.json`;
 };
+
+

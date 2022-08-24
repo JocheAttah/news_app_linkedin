@@ -30,7 +30,7 @@ const ScrollableTab = ({ tabList, selectedTab, onPress }) => {
           ></View>
         </View>
       )}
-      <Text style={{ ...styles.sliderText }}>{item.name}</Text>
+      <Text style={{ ...styles.sliderText }}>{item.title}</Text>
     </TouchableOpacity>
   );
 

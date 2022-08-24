@@ -13,7 +13,7 @@ const Headlines = ({ news }) => {
       <Image
         style={{ ...styles.image }}
         source={{
-          uri: news.image
+          uri: news.urlToImage,
         }}
       />
       <View style={{ marginLeft: 10, flex: 1 }}>
@@ -39,9 +39,9 @@ const Headlines = ({ news }) => {
 export default Headlines;
 
 const styles = StyleSheet.create({
-    image: {
-        width: 91,
-        height: 77,
-        borderRadius: 10,
-      },
+  image: {
+    width: 91,
+    height: 77,
+    borderRadius: 10,
+  },
 });

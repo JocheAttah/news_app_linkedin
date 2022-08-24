@@ -6,7 +6,7 @@ import Al from "../assets/al.svg";
 const tabListData = [
   {
     id: 0,
-    name: "All",
+    name: "general",
     title: "All",
     NewsList: [
       {
@@ -27,7 +27,7 @@ const tabListData = [
   },
   {
     id: 1,
-    name: "Business",
+    name: "business",
     title: "Business",
     NewsList: [
       {
@@ -46,7 +46,7 @@ const tabListData = [
   },
   {
     id: 2,
-    name: "Entertainment",
+    name: "entertainment",
     title: "Entertainmet",
     NewsList: [
       {
@@ -65,7 +65,7 @@ const tabListData = [
   },
   {
     id: 3,
-    name: "Health",
+    name: "health",
     title: "Health",
     NewsList: [
       {
@@ -84,7 +84,7 @@ const tabListData = [
   },
   {
     id: 4,
-    name: "Sports",
+    name: "sports",
     title: "Sports",
     NewsList: [
       {
