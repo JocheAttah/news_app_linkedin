@@ -52,7 +52,7 @@ function App() {
     <OurContext>
       <NavigationContainer theme={MyTheme}>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="Details"
           screenOptions={{
             headerShown: false,
           }}

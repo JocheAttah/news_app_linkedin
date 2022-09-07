@@ -37,7 +37,7 @@ const HomeScreen = () => {
     </View>
   );
   return (
-    <Container>
+    <Container extraStyles={styles.container}>
       <Header home />
       <View style={{ ...styles.headerTextContainer }}>
         <Text style={{ ...styles.headerText }}>Discover</Text>
@@ -92,6 +92,9 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+  },
   headerTextContainer: {
     marginTop: 54,
   },
